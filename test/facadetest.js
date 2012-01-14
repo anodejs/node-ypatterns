@@ -9,7 +9,7 @@ module.exports = testCase({
 
         function originalFactory(param1, param2) {
 
-            return { initialize: initialize, cleanup: cleanup, member1: 'm1' };
+            return { initialize: initialize, cleanup: cleanup };
 
             function initialize(callback) {
                 // parameters are delivered into initialization.
@@ -20,7 +20,7 @@ module.exports = testCase({
                     // Initialization completes asynchronously, but everything created
                     // during initialization can be used in cleanup.
                     step = 'initialize completed';
-                    callback();
+                    callback({ member1: 'm1' });
                 });
                 step = 'initialize called';
             }
@@ -38,13 +38,13 @@ module.exports = testCase({
             return facadeFactory(original, callback);
         }
 
-        var obj = facadedFactory('p1', 'p2', function () {
+        var handle = facadedFactory('p1', 'p2', function (instance) {
+            test.equal(instance.member1, 'm1');
         });
 
         test.equal(step, 'initialize called');
-        test.equal(obj.member1, 'm1');
         // Start closing before initialization is completed.
-        obj.close(function () {
+        handle.close(function () {
             test.equal(step, 'cleanup completed');
             test.done();
         });

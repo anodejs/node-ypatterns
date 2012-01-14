@@ -9,7 +9,7 @@ module.exports = testCase({
 
         function originalFactory(param1, param2) {
 
-            return { initialize: initialize, cleanup: cleanup };
+            return { initialize: initialize, cleanup: cleanup, member1: 'm1' };
 
             function initialize(callback) {
                 // parameters are delivered into initialization.
@@ -38,12 +38,13 @@ module.exports = testCase({
             return facadeFactory(original, callback);
         }
 
-        var handle = facadedFactory('p1', 'p2', function () {
+        var obj = facadedFactory('p1', 'p2', function () {
         });
 
         test.equal(step, 'initialize called');
+        test.equal(obj.member1, 'm1');
         // Start closing before initialization is completed.
-        handle.close(function () {
+        obj.close(function () {
             test.equal(step, 'cleanup completed');
             test.done();
         });

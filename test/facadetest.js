@@ -20,7 +20,7 @@ module.exports = testCase({
                     // Initialization completes asynchronously, but everything created
                     // during initialization can be used in cleanup.
                     step = 'initialize completed';
-                    callback();
+                    callback({ member1: 'm1' });
                 });
                 step = 'initialize called';
             }
@@ -38,7 +38,8 @@ module.exports = testCase({
             return facadeFactory(original, callback);
         }
 
-        var handle = facadedFactory('p1', 'p2', function () {
+        var handle = facadedFactory('p1', 'p2', function (instance) {
+            test.equal(instance.member1, 'm1');
         });
 
         test.equal(step, 'initialize called');

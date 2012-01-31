@@ -1,2 +1,3 @@
 exports.gateFactory = require('./lib/gate');
-exports.facadeFactory = require('./lib/facade');
+exports.handleWrapper = require('./lib/handlewrapper');
+exports.syncasyncFacadeFactory = require('./lib/syncasyncfacade');

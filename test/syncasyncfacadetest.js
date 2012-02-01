@@ -1,5 +1,5 @@
 ﻿var testCase = require('nodeunit').testCase;
-var facadeFactory = require('../main').syncasyncFacadeFactory;
+var syncasyncFacade = require('../main').syncasyncFacade;
 
 function originalFactory(param1, param2) {
 
@@ -38,7 +38,7 @@ function originalFactory(param1, param2) {
 
 function facadedFactory(param1, param2, callback) {
     var factory = originalFactory(param1, param2);
-    return facadeFactory(factory, callback);
+    return syncasyncFacade(factory, callback);
 }
 
 module.exports = testCase({

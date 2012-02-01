@@ -1,7 +1,6 @@
 ﻿var testCase = require('nodeunit').testCase;
 var handleWrapper = require('../main').handleWrapper;
 
-
 function factory(initializeNotification, cleanupNotification) {
 
     var instance = { initialize: initialize, cleanup: cleanup };

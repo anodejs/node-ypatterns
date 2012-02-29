@@ -14,7 +14,7 @@
     "gate"
   ],
   "engines": {
-    "node": "~0.6.6"
+    "node": "~0.6.x"
   },
   "devDependencies": {
     "nodeunit": "0.6.x"

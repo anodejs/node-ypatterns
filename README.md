@@ -77,10 +77,11 @@ var obj = factory(..., function() {
   // Object initialization completed asynchronously. The object can be used.
   obj.foo();
 });
-// At this point initialization might not be completed yet, however, the object can be used here as well.
+// At this point initialization might not be completed yet, however, the object can be used 
+// here as well.
 obj.foo();
-// Function foo will trigger synchronous initializer, which will be invoked before calling foo, if object's
-// initialziation was not completed.
+// Function foo will trigger synchronous initializer, which will be invoked before calling foo, 
+// if object's initialziation was not completed.
 ```
 
 ### Definition

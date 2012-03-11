@@ -101,12 +101,17 @@ function factory(..., callback) {
   
   function initializeSync(instance) {
     // synchronous initializer is invoked only if needed.
-    // initializers should be idempotent, at least, it should be anticipated that synchronous initializer will be
-    // invoked after asynchronous started and asynchronous one should anticipate synchronous was called in the middle
-    // of its execution.
+    // initializers should be idempotent, at least, it should be anticipated that synchronous initializer 
+    // will be invoked after asynchronous started and asynchronous one should anticipate synchronous was 
+    // called in the middle of its execution.
   }
 
-  return syncasyncFacade({ create: createInstance, initializeAsync: initializeAsync, initializeSync: initializeSync }, callback);
+  return syncasyncFacade({ 
+      create: createInstance, 
+      initializeAsync: initializeAsync, 
+      initializeSync: initializeSync 
+      }, 
+    callback);
 }
 ```
 

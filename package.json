@@ -4,7 +4,7 @@
   "main": "./main",
   "bin": {},
   "author": "yosefd <yosefd@microsoft.com>",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "license": "MIT",
   "contributors": [
     "Yosef Dinerstein <yosefd@microsoft.com>"
@@ -14,7 +14,7 @@
     "gate"
   ],
   "engines": {
-    "node": "~0.6.x"
+    "node": "~0.10.x"
   },
   "devDependencies": {
     "nodeunit": "0.6.x"
